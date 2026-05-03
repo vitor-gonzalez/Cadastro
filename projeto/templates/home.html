@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    {% if current_user.is_authenticated %}
+        <h1>Bem-vindo, {{current_user.nome}}!</h1>
+        <p>Chute um numero de {{ menor_num }} até {{ maior_num }}</p>
+        <form method="POST">
+    <input type="number" name="palpite" required>
+    <button type="submit">Enviar</button>
+</form>
+
+<p>{{ mensagem }}</p>
+
+    {% else %}
+        <h1>Você não está logado!</h1>
+    {% endif %}
+    <h4><a href="/login">Sair</a></h4>
+</body>
+</html>
